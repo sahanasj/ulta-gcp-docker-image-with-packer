@@ -8,7 +8,9 @@ This is a repo for Docker image creation using Packer and CICD build for docker 
 
 Manually create GKE Docker image using packer:
 
-$ packer build -var "team_name=quazi" packer.json
+$ ./packer validate packer.json
+
+$ ./packer build -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" -var "team_name=quazi" packer.json
 
 ![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/1-packer-image-build.PNG)
 
