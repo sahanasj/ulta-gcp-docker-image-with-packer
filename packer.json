@@ -1,0 +1,36 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "ubuntu:16.04",
+            "commit": "true"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "quazi/quazi-install.sh"
+        },
+        {
+          "type": "shell",
+          "scripts": "quazi/python_requirements.txt",
+          "execute_command": "pip install -r {{ .Path }}"
+        }
+    ],
+    "post-processors": [
+    [
+      { 
+        "type": "docker-tag",
+        "repository": "gcr.io/ulta-image-hardening/ulta-quazi-image",
+        "tag": "ultaquazilatest",
+        "only": ["docker"]
+      },
+      {
+        "type": "docker-push",
+        "login": true,
+        "login_username": "{{user `docker_hub_id`}}",
+        "login_password": "{{user `docker_hub_password`}}"
+      }
+    ]
+  ]
+ }
