@@ -8,7 +8,7 @@ This is a repo for Docker image creation using Packer and CICD build for docker 
 | [Dockerfile](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Dockerfile)<br> | To create a Docker base image with OpenJDK, packer package & SSH for Jenkins Slave/agent node configuration  |
 | [Build-Base-Docker-Image-cmds](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Build-Base-Docker-Image-cmds)<br> | Commands to build Base Docker image and push to your Docker hub account  |
 
-# Manually Build a Ulta Golden Docker image using packer script
+# Manually Build a Ulta Golden Docker image and upload an artifact to Google container registry using Packer Script
 
 | Config-file | Description |
 |-------------|-------------|
