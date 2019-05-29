@@ -19,3 +19,9 @@ $ docker login
 
 Step 5: Once logged in to docker hub, then push your image:
 $ docker push <docker-hub-username>/<dockerhub-repo-name>:<image-tag>
+
+Note: Refere to screenshot as below:
+
+https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/0-docker-base-image-push-to-hub.PNG
+
+
