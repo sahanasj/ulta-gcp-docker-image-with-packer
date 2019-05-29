@@ -17,10 +17,10 @@ This is a repo for Docker image creation using Packer and CICD build for docker 
 * Commands to manually build GKE - Golden Docker image using packer
 
 Step 1: To validate packer script <br>
-$ ./packer validate packer.json
+**$ ./packer validate packer.json**
 
 Step 2: To build using packer script <br>
-$ ./packer build -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" -var "team_name=quazi" packer.json
+**$ ./packer build -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" -var "team_name=quazi" packer.json**
 
 Example outputs from Packer script
 
@@ -43,14 +43,14 @@ Example outputs from Packer script
 
 * Commands to build GKE - Golden Docker image using automation
 
-$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json
+**$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json**
 
 ![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/15-jenkins-job-running-success.png)
 
 # Multi Team Automated Image Creation Usage:
 
 # For Quazi Team:
-$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json
+**$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json**
 
 # For CCP Team:
-$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=ccp" packer.json
+**$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=ccp" packer.json**
