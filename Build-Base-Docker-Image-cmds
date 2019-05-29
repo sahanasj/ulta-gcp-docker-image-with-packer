@@ -2,28 +2,20 @@
 ** Commands to build Base Docker image and push to Docker hub account **
 ============================================================================
 
-Create youw own Dockerfile
+Create your own Dockerfile
 $ vim Dockerfile
 
-To Build:
-$ docker build -t <dockerhub-acc>/<dockerhub-repo>:<your-image-name> .
-Example:
-$ docker build -t ulta/docker-quazi-image:base .
+Step 1: To Build a Docker image:
+$ docker build -t <dockerhub-acc-username>/<dockerhub-repo-name>:<your-image-name> .
 
-To see docker image built locally:
+Step 2: To see a docker image built locally:
 $ docker images
 
-To Tag:
-$ docker tag <your-image-name>:<tag> <dockerhub-acc>/<dockerhub-repo>:<tag> 
-Example:
-$ docker tag ulta/docker-base-image:base 46464646/docker-base-image:base
+Step 3: To Tag your image with versions:
+$ docker tag <your-image-name>:<tag> <dockerhub-acc-username>/<dockerhub-repo-name>:<tag> 
 
-To authenticate Docker login
+Step 4: To authenticate Docker Hub Account 
 $ docker login
 
-To Push:
-$ docker push <docker-acc>/<dockerhub>:<tag>
-Example:
-$ docker push 46464646/docker-base-image:base
-
-
+Step 5: Once logged in to docker hub, then push your image:
+$ docker push <docker-hub-username>/<dockerhub-repo-name>:<image-tag>
