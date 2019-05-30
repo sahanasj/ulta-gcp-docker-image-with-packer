@@ -1,14 +1,14 @@
 # GCP Docker/Container Image Management and Hardening through CICD Pipeline
 This is a repo for Docker image creation using Packer and CICD build for docker image using Jenkins on Google Cloud Platform
 
-# Build a Docker base image using Dockerfile
+# 1. Build a Docker base image using Dockerfile
 
 | Config-file | Description |
 |-------------|-------------|
 | [Dockerfile](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Dockerfile)<br> | To create a Docker base image with OpenJDK, packer package & SSH for Jenkins Slave/agent node configuration  |
 | [Build-Base-Docker-Image-cmds](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Build-Base-Docker-Image-cmds)<br> | Commands to build Base Docker image and push to your Docker hub account  |
 
-# Manually Build a Ulta Golden Docker image and upload an artifact to Google container registry using Packer Script
+# 2. Manually Build a Ulta Golden Docker image and upload an artifact to Google container registry using Packer Script
 
 | Config-file | Description |
 |-------------|-------------|
@@ -30,7 +30,7 @@ Example outputs from Packer script
 
 ![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/3-packer-image-build.PNG)
 
-# Automate CICD pipeline to build a Ulta Golden Docker image using Jenkins:
+# 3. Automate CICD pipeline to build a Ulta Golden Docker image using Jenkins:
 
 | Config-file | Description |
 |-------------|-------------|
@@ -46,6 +46,14 @@ Example outputs from Packer script
 **$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json**
 
 ![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/15-jenkins-job-running-success.png)
+
+# 4. CICD for creation of Docker image and upload to Google container registry.
+
+**Verification on Google Container Registry**
+
+![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/5-google-container-registry.png)
+
+![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/6-google-container-registry.png)
 
 # Multi Team Automated Image Creation Usage:
 
