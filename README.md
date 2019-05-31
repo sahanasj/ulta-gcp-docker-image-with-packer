@@ -35,13 +35,19 @@ Example outputs from Packer script
 | Config-file | Description |
 |-------------|-------------|
 | [Packer.josn](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/packer.json)<br> | Automate CICD to create/build a Golden Docker base image with ulta's quazi packages  |
+| [configure-docker-host](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/configure-docker-host)<br> | On docker host, to expose docker’s TCP port so DockerPlugin can access docker host and create build slave container  |
 
-* Step 1: Configure Jenkins with Github repo and Google cloud platform.
+* Step 1: Integrate/Configure Jenkins with Github repo and Google cloud platform.
 * Step 2: Configure Jenkins with required plugins
 * Step 3: Configure Jenkins slave/agent node
-* Step 4: Create a jenkins job to build process for docker golden image
+* Step 4: Create a GCP firewall rule for Docker TCP port 
+* Setp 5: Create a jenkins job to build process for docker golden image
 
-* Commands to build GKE - Golden Docker image using automation
+GCP Firewall Rule to docker’s TCP port:
+
+![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/GCP-firewall-for-docker-host.PNG)
+
+* Command to build GKE - Golden Docker image using automation
 
 **$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json**
 
