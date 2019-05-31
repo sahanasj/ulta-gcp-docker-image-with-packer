@@ -1,0 +1,41 @@
+Step 1: Make sure, you have installed Docker on host
+Step 2: On docker host, to expose docker’s TCP port so DockerPlugin can access docker host and create build slave container, edit /etc/default/docker to modify the value of DOCKER_OPTS as (note that 4243 is the default TCP port for docker or use 2375 as unencrypted password less port) and restart docker daemon.
+
+# vim /etc/default/docker
+DOCKER_OPTS='-H tcp://<ip-address>:4243 -H unix:///var/run/docker.sock'
+Save and exit.
+
+# systemctl daemon-reload
+# systemctl restart docker
+
+Step 3: In Google cloud platform, Create a firewall rule for Docker TCP port.
+
+Step 4: Now we can return back to Jenkins Web UI and configure Jenkins:
+
+Manage Jenkins > Configure system > Cloud > docker
+
+1) Input docker URL: tcp://[your host ip]:4243
+
+2) If click “Test Connection”, you can see docker API version shown on UI.
+
+
+********************
+Reference/Notes:
+********************
+
+1. Using Firewall Rules
+https://cloud.google.com/vpc/docs/using-firewalls
+
+2. dockerd
+https://docs.docker.com/engine/reference/commandline/dockerd/
+
+The docker socket can be configured on any port with the dockerd -H option. Common docker ports that I see include:
+
+2375: unencrypted docker socket, remote root passwordless access to the host
+2376: tls encrypted socket, most likely this is your CI servers 4243 port as a modification of the https 443 port
+2377: swarm mode socket, for swarm managers, not for docker clients
+5000: docker registry service
+4789 and 7946: overlay networking
+
+
+
