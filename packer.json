@@ -9,11 +9,11 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "teams\{{user `team_name`}}/install-package.sh"
+            "script": "teams/{{user `team_name`}}/install-package.sh"
         },
         {
           "type": "shell",
-          "scripts": "teams\{{user `team_name`}}/python_requirements.txt",
+          "scripts": "teams/{{user `team_name`}}/python_requirements.txt",
           "execute_command": "pip install -r {{ .Path }}"
         }
     ],
