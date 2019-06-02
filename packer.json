@@ -9,7 +9,7 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "{{user `team_name`}}/quazi-install.sh"
+            "script": "{{user `team_name`}}/install-package.sh"
         },
         {
           "type": "shell",
