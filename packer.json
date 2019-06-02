@@ -9,11 +9,11 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": ""{{user `team_name`}}/quazi-install.sh"
+            "script": "{{user `team_name`}}"/quazi-install.sh"
         },
         {
           "type": "shell",
-          "scripts": "{{user `team_name`}}/python_requirements.txt",
+          "scripts": "{{user `team_name`}}"/python_requirements.txt",
           "execute_command": "pip install -r {{ .Path }}"
         }
     ],
