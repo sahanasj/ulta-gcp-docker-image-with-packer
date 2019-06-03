@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "docker",
-            "image": "ubuntu:16.04",
+            "image": "{{user `image_name`}}",
             "commit": "true"
         }
     ],
@@ -21,7 +21,7 @@
     [
       { 
         "type": "docker-tag",
-        "repository": "gcr.io/ulta-image-hardening/ulta-quazi-image",
+        "repository": "gcr.io/{{user `project_id`}}/{{user `gcp_container_reg_name`}}",
         "tag": "ultaquazilatest",
         "only": ["docker"]
       },
