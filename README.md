@@ -5,8 +5,8 @@ This is a repo for Docker image creation using Packer and CICD build for docker 
 
 | Config-file | Description |
 |-------------|-------------|
-| [Dockerfile](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Dockerfile)<br> | To create a Docker base image with OpenJDK, packer package & SSH for Jenkins Slave/agent node configuration  |
-| [Build-Base-Docker-Image-cmds](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Build-Base-Docker-Image-cmds)<br> | Commands to build Base Docker image and push to your Docker hub account  |
+| [Dockerfile](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Dockerfile)<br> | To create a Docker agent/base image with OpenJDK, packer package & SSH for Jenkins Slave/agent node configuration  |
+| [Build-Base-Docker-Image-cmds](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/Build-Base-Docker-Image-cmds)<br> | Commands to build a Docker agent/base image and push to your Docker hub account for publicly available |
 
 # 2. Manually Build a Ulta Golden Docker image and upload an artifact to Google container registry using Packer Script
 
@@ -14,12 +14,12 @@ This is a repo for Docker image creation using Packer and CICD build for docker 
 |-------------|-------------|
 | [Packer.json](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/packer.json)<br> | To create/build a Golden Docker base image with ulta's quazi packages  |
 
-* Commands to manually build GKE - Golden Docker image using packer
-<br>
-Step 1: Make sure, you have Team Libraries(**install-package.sh** shell script) and Python packages(**python_requirements.txt**) are specified under "teams" folder.
-<br>
+* Commands to manually build GKE - Golden Docker image using packer<br>
+
+Step 1: Make sure, you have Team Libraries( **install-package.sh** shell script) and Python packages( **python_requirements.txt**) are specified under "teams" folder.
+
 Step 2: **cat packer.json**
-<br>
+
 Step 3: To validate packer script <br>
 **$ ./packer validate packer.json**
 
