@@ -15,16 +15,17 @@ This is a repo for Docker image creation using Packer and CICD build for docker 
 | [Packer.json](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/packer.json)<br> | To create/build a Golden Docker base image with ulta's quazi packages  |
 
 * Commands to manually build GKE - Golden Docker image using packer
+<br>
 Step 1: Make sure, you have Team Libraries(**install-package.sh** shell script) and Python packages(**python_requirements.txt**) are specified under "teams" folder.
-
-Step 2:**cat packer.json**
-
+<br>
+Step 2: **cat packer.json**
+<br>
 Step 3: To validate packer script <br>
 **$ ./packer validate packer.json**
 
 Step 2: To build using packer script <br>
-**$ ./packer build -var "image_name=<your-image-type>" -var "team_name=<quazi-or-ccp>" -var "project_id=<your-project-id>" -var "gcp_container_reg_name=<gcp-container-reg-name>" -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" packer.json**
-
+**$ ./packer build -var "image_name=<your_image_type>" -var "team_name=<quazi_or_ccp>" -var "project_id=<your_project_id>" -var "gcp_container_reg_name=<name_for_gcp_container_reg>" -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" packer.json**
+  
 Example outputs from Packer script
 
 ![alt text](https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/1-packer-image-build.PNG)
@@ -67,7 +68,9 @@ GCP Firewall Rule to docker’s TCP port:
 # Multi Team Automated Image Creation Usage:
 
 # For Quazi Team:
-**$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=quazi" packer.json**
+
+**$ packer build -var "team_name=quazi" -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "image_name=<your_image_type>" -var "project_id=<your_project_id>" -var "gcp_container_reg_name=<name_for_gcp_container_reg>" -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" packer.json**
+
 
 # For CCP Team:
-**$ packer build -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "team_name=ccp" packer.json**
+**$ packer build -var "team_name=ccp" -var "build_number=$BUILD_NUMBER" -var "job_name=$JOB_NAME" -var "image_name=<your_image_type>" -var "project_id=<your_project_id>" -var "gcp_container_reg_name=<name_for_gcp_container_reg>" -var "docker_hub_id=<your_docker_hub_id>" -var "docker_hub_password=<your_docker_hub_password>" packer.json**
