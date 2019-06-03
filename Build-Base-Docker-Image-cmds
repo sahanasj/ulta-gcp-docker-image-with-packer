@@ -2,26 +2,41 @@
 ** Commands to build Base Docker image and push to Docker hub account **
 ============================================================================
 
-Create your own Dockerfile
+Step 1: Create your own Dockerfile
 $ vim Dockerfile
 
-Step 1: To Build a Docker image:
+Step 2: To Build a Docker image locally:
+$ docker build -t <your-image-name> .
+
+[or]
+
 $ docker build -t <dockerhub-acc-username>/<dockerhub-repo-name>:<your-image-name> .
 
-Step 2: To see a docker image built locally:
+Step 3: To see a docker image built locally:
 $ docker images
 
-Step 3: To Tag your image with versions:
+Step 4: To Tag your image with versions:
 $ docker tag <your-image-name>:<tag> <dockerhub-acc-username>/<dockerhub-repo-name>:<tag> 
 
-Step 4: To authenticate Docker Hub Account 
+Step 5: To authenticate Docker Hub Account 
 $ docker login
 
-Step 5: Once logged in to docker hub, then push your image:
+Step 6: Once logged in to docker hub, then push your image:
 $ docker push <docker-hub-username>/<dockerhub-repo-name>:<image-tag>
+
+Step 7: On web browser, login to Docker hub and can check the image we built and stored in Docker Public repository 
+(This is a reference image for jenkins slave/agent node while building CICD pipeline)
 
 Note: Refere to screenshot as below:
 
 https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/0-docker-base-image-push-to-hub.PNG
 
+https://github.com/sahanasj/ulta-gcp-docker-image-with-packer/blob/master/screenshots/docker-hub-image-base.png
+
+
+For example:
+
+$ docker build -t jenkins-docker-agent-image .
+$ docker tag jenkins-docker-agent-image:latest 46464646/jenkins-docker-agent-image:base
+$ docker push 46464646/jenkins-docker-agent-image:base
 
